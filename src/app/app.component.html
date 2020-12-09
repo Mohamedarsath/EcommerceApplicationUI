@@ -1,0 +1,262 @@
+<nz-layout>
+  <nz-header>
+    <nav class="docs-navbar-header">
+
+
+      <img src="./../assets/images/Loghyo.png" style="padding-left: 250px;padding-right: 250px;">
+      <ul nz-menu nzMode="horizontal">
+        <li nz-menu-item>
+          <a style="color:gray; font-size: large;" routerLink=".">HOME</a>
+        </li>
+        <li nz-menu-item>
+          <a style="color:gray; font-size: large;" routerLink="/demo">SHOP</a>
+        </li>
+        <li nz-menu-item>
+          <a style="color:gray; font-size: large;" routerLink="/test">PRODUCTS</a>
+        </li>
+        <li nz-menu-item>
+          <a style="color:gray; font-size: large;" routerLink="/test">BLOG</a>
+        </li>
+      </ul>
+      <div style="padding-left: 50px; padding-right: 50px;">
+        <img src="./../assets/images/.png">
+        <img src="./../assets/images/.png" style="padding-left: 20px;">
+        <img src="./../assets/images/.png" style="padding-left: 20px;">
+        <img src="./../assets/images/.png" style="padding-left: 20px;">
+      </div>
+
+    </nav>
+  </nz-header>
+  <nz-content>
+    <div style="width: 1370px; height: 450px; background-color: white;">
+      <nz-carousel [nzEffect]="effect">
+        <div nz-carousel-content *ngFor="let banner of bannerarray">
+
+
+          <img src="{{banner.src}}" alt="" width="1368px" height="500px">
+
+        </div>
+      </nz-carousel>
+    </div>
+    <nz-card nzTitle="FEATURED CATEGORIES" [nzExtra]="extraTemplate" style="padding: 30px;">
+      <!-- <div> -->
+      <div nz-row [nzGutter]="24">
+        <div nz-col [nzMd]="4" [nzXs]="24" *ngFor="let category of categoryarray">
+          <nz-card nzHoverable style="width:150px;" [nzCover]="coverTemplate6">
+            <nz-card-meta *ngIf="category.count!==''" nzTitle="{{category.name}}"
+              nzDescription="{{category.count +'items'}}"></nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate6>
+            <img alt="example" src="{{category.src}}" />
+          </ng-template>
+
+        </div>
+
+      </div>
+
+
+      <!-- </div> -->
+      <ng-template #extraTemplate>
+        <img alt="example" src="./../assets/images/.png" />
+        <img alt="example" src="./../assets/images/.png" />
+      </ng-template>
+    </nz-card>
+    <nz-card>
+      <div nz-row [nzGutter]="24">
+        <div nz-col [nzMd]="12" [nzXs]="24">
+          <img alt="example" src="./../assets/images/viewallproduct.png" style="padding-right: 100px;" />
+        </div>
+        <div nz-col [nzMd]="6" [nzXs]="24" *ngFor="let bestprice of bestpricearray">
+
+          <nz-card nzHoverable style="width:230px; height: 400px;" [nzCover]="coverTemplate6">
+            <nz-card-meta *ngIf=bestprice.price nzTitle="{{bestprice.name}}" nzDescription="{{'$'+bestprice.price}}">
+            </nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate6>
+            <img alt="example" src="{{bestprice.src}}" style="height: 300px;" />
+          </ng-template>
+
+        </div>
+
+      </div>
+    </nz-card>
+    <nz-card style="padding: 30px;">
+      <nz-card-tab>
+        <nz-tabset nzSize="large">
+          <nz-tab nzTitle="NEW ARRIVALS"></nz-tab>
+          <nz-tab nzTitle="FEUTURED"></nz-tab>
+          <nz-tab nzTitle="BEST SELLING"></nz-tab>
+          <nz-tab nzTitle="ON SALES"></nz-tab>
+        </nz-tabset>
+      </nz-card-tab>
+      <div nz-row [nzGutter]="24">
+        <div nz-col [nzMd]="6" [nzXs]="24" *ngFor="let product of productarray">
+          <nz-card nzHoverable style="width:150px;" [nzCover]="coverTemplate6">
+            <nz-card-meta nzTitle="{{product.name}}" nzDescription="{{'$'+product.price}}"></nz-card-meta>
+
+          </nz-card>
+
+          <ng-template #coverTemplate6>
+
+            <img alt="example" src="{{product.src}}" nz-popover nzType="primary" nzPopoverTrigger="click"
+              nzPopoverPlacement="bottom" [nzPopoverContent]="contentTemplate" />
+
+          </ng-template>
+          <ng-template #contentTemplate style="width: 100px;">
+            <button> <i nz-icon nzType="shopping-cart" nzTheme="outline"></i></button>
+
+            <button> <i nz-icon nzType="heart" nzTheme="fill"></i></button>
+            <button> <i nz-icon nzType="search" nzTheme="outline"></i></button>
+          </ng-template>
+
+        </div>
+
+      </div>
+    </nz-card>
+    <nz-card nzTitle="LATEST BLOG POST" [nzExtra]="extraTemplate" style="padding: 30px;">
+      <!-- <div> -->
+      <div nz-row [nzGutter]="24">
+        <div nz-col [nzMd]="8" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate10">
+            <nz-card-meta nzTitle="Aptent" nzDescription="Fuse Aptent etc"></nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate10>
+            <img alt="example" src="./../assets/images/Image-1.png" />
+          </ng-template>
+
+        </div>
+        <div nz-col [nzMd]="8" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate8">
+            <nz-card-meta nzTitle="Aptent" nzDescription="Fuse Aptent etc"></nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate8>
+            <img alt="example" src="./../assets/images/Image1.png" />
+          </ng-template>
+
+        </div>
+        <div nz-col [nzMd]="8" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate9">
+            <nz-card-meta nzTitle="Aptent" nzDescription="Fuse Aptent etc"></nz-card-meta>
+          </nz-card>
+          <ng-template #coverTemplate9>
+            <img alt="example" src="./../assets/images/Image.png" width="500px" />
+          </ng-template>
+
+        </div>
+      </div>
+
+
+      <!-- </div> -->
+      <ng-template #extraTemplate>
+        <img alt="example" src="./../assets/images/.png" />
+        <img alt="example" src="./../assets/images/.png" />
+      </ng-template>
+    </nz-card>
+    <nz-card nzTitle="SHOP BY BRANDS" [nzExtra]="extraTemplate" style="padding: 30px;">
+      <!-- <div> -->
+      <div nz-row [nzGutter]="24">
+        <div nz-col [nzMd]="4" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate11" style="width: 100px;">
+
+          </nz-card>
+          <ng-template #coverTemplate11>
+            <img alt="example" src="./../assets/images/brand-1.png" />
+          </ng-template>
+
+        </div>
+        <div nz-col [nzMd]="4" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate12" style="width: 100px;">
+
+          </nz-card>
+          <ng-template #coverTemplate12>
+            <img alt="example" src="./../assets/images/brand-2.png" />
+          </ng-template>
+
+        </div>
+        <div nz-col [nzMd]="4" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate13" style="width: 100px;">
+
+          </nz-card>
+          <ng-template #coverTemplate13>
+            <img alt="example" src="./../assets/images/brand-3 (1).png" width="500px" />
+          </ng-template>
+
+        </div>
+        <div nz-col [nzMd]="4" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate14" style="width: 100px;">
+
+          </nz-card>
+          <ng-template #coverTemplate14>
+            <img alt="example" src="./../assets/images/brand-3.png" width="500px" />
+          </ng-template>
+
+        </div>
+        <div nz-col [nzMd]="4" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate15" style="width: 100px;">
+
+          </nz-card>
+          <ng-template #coverTemplate15>
+            <img alt="example" src="./../assets/images/brand-4.png" width="500px" />
+          </ng-template>
+
+        </div>
+        <div nz-col [nzMd]="4" [nzXs]="24">
+          <nz-card nzHoverable [nzCover]="coverTemplate16" style="width: 100px;">
+
+          </nz-card>
+          <ng-template #coverTemplate16>
+            <img alt="example" src="./../assets/images/brand-6.png" width="40px" />
+          </ng-template>
+
+        </div>
+      </div>
+
+
+      <!-- </div> -->
+      <ng-template #extraTemplate>
+        <img alt="example" src="./../assets/images/.png" />
+        <img alt="example" src="./../assets/images/.png" />
+      </ng-template>
+    </nz-card>
+  </nz-content>
+  <nz-footer style="background-color:teal;">
+    <div nz-row [nzGutter]="24">
+      <div nz-col [nzMd]="8" [nzXs]="24">
+        <img src="./../assets/images/Loghyo.png" alt="">
+        <p>Bazar is premium template theme</p>
+        <p>180,Main Road, St Albnas</p>
+      </div>
+      <div nz-col [nzMd]="8" [nzXs]="24">
+        <p>INFORMATION</p>
+        <p>About Us</p>
+        <p>Contact Us</p>
+      </div>
+      <div nz-col [nzMd]="8" [nzXs]="24">
+        <p>USEFUL LINK</p>
+        <p>Online Store </p>
+        <p>Customer Services</p>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div nz-row [nzGutter]="24">
+      <div nz-col [nzMd]="8" [nzXs]="24">
+        <p>2019 ALL Rights Reserved</p>
+      </div>
+      <div nz-col [nzMd]="8" [nzXs]="24">
+        <img src="./../assets/images/payment.png" alt="">
+      </div>
+      <div nz-col [nzMd]="8" [nzXs]="24" style="padding-left: 20px;">
+
+        <img src="./../assets/images/Facebook.png" alt="">
+        <img src="./../assets/images/Twitter.png" alt="">
+        <img src="./../assets/images/Behance.png" alt="">
+        <img src="./../assets/images/Dribbble.png" alt="">
+      </div>
+    </div>
+
+  </nz-footer>
+
+</nz-layout>
+
+
+<router-outlet></router-outlet>
